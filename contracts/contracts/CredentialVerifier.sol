@@ -20,7 +20,7 @@ contract CredentialVerifier is Ownable {
     }
 
     function calcWeight(address owner, bytes32 uid) returns (uint) {
-        if( uint(_gitcoinResolver.userAttestations(owner, uid)) > 0){
+        if(uint(_gitcoinResolver.userAttestations(owner, uid)) > 0){
             return 1
         }else{
             return 0

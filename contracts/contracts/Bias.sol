@@ -11,8 +11,9 @@ contract Bias is ERC20 {
         uint32 createdAt;
         string title;
         string content;
-        string choiceA;
-        string choiceB;
+        uint funds;
+        // string choiceA;
+        // string choiceB;
     }
 
     /**
@@ -20,8 +21,9 @@ contract Bias is ERC20 {
      */
     uint public rewards = 10 * 1e18
 
-    Topic[] private _topics;
-    mapping(uint => uint) votes;
+    Topic[] public _topics;
+    mapping(uint => mapping(uint => uint)) public votes;
+    mapping (uint => mapping(address => uint)) public voted;
 
     CredentialVerifier private _credentialVerifier;
 
@@ -31,20 +33,28 @@ contract Bias is ERC20 {
     }
 
     function propose(
-        uint32 createdAt,
         string title,
         string content,
-        string choiceA,
-        string choiceB,
+        uint funds,
         bytes32 gitcoinPassUid
     ) public {
         require(_credentialVerifier.verifyGitcionPass(gitcoinPassUid), "not authorized");
-        _topics.push(Topic(round, msg.sender, createdAt, title, content, choiceA, choiceB));
+        require(_transferFrom())
+        _topics.push(Topic(msg.sender, block.timestamp, title, content, funds));
     }
 
     function topicAt(uint index) public returns (Topic) {
         return _topics[index];
     }
+
+    function vote(uint raffleId, uint voteFor, bytes32 gitcoinPassUid) public {
+        uint weight = _credentialVerifier.calcWeight(msg.sender, gitcoinPassUid);
+        require(weight>0, "not authorized");
+
+        _mint(msg.sender, rewards);
+    }
+
+
 
 
 }
