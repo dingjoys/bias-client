@@ -1,7 +1,6 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "./CredentialVerifier.sol";
 
@@ -18,7 +17,7 @@ contract Bias is ERC20 {
     /**
      * @dev Earnings each vote
      */
-    uint public rewards = 10 * 1e18
+    uint public rewards = 10 * 1e18;
 
     Topic[] private _topics;
     mapping(uint => uint) votes;
@@ -45,6 +44,7 @@ contract Bias is ERC20 {
     function topicAt(uint index) public returns (Topic) {
         return _topics[index];
     }
+
 
 
 }
