@@ -562,6 +562,75 @@
 			},
 			{
 				"inputs": [],
+				"name": "topicTotal",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "start",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "number",
+						"type": "uint256"
+					}
+				],
+				"name": "topics",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "creator",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "createdAt",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "title",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "content",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "funds",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "max",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct BiasProtocol.Topic[]",
+						"name": "result",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
 				"name": "totalSupply",
 				"outputs": [
 					{
@@ -887,11 +956,11 @@
 			]
 		},
 		"contracts/Bias.sol": {
-			"keccak256": "0x9d28d049f4ee7f1ef4fe4f3e9fc79aee69439edb8c2b801916d68cec92c38927",
+			"keccak256": "0x27439cff8930e8b55cd460c8d0e6a39d8f54bb84a79e8ba87111a201a1aab7e6",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://017375db379b5ac0afdabd426c59344695b62f9839aa6eec508444737bb88e05",
-				"dweb:/ipfs/QmTMqDV5Z8KbYWkUFy1ZumNTrAjuc3yPyst5nvbyNyYL9i"
+				"bzz-raw://26930b3c8cc8dc5cf521e29225af61f4990d7620d22654a000a5789f60d566bd",
+				"dweb:/ipfs/QmdLr93ttyx9z4aqRF8JZ6AfyCXRV1rDHvnn5GT2CeQ3hV"
 			]
 		},
 		"contracts/CredentialVerifier.sol": {

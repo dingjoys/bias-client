@@ -69,12 +69,15 @@ contract BiasProtocol is ERC20, Ownable{
             "not authorized"
         );
         require(
-            balanceOf(msg.sender) >= funds && funds >= (max * _rewards) / 10,
+            topicTotal()==0 || ( balanceOf(msg.sender) >= funds && funds >= (max * _rewards) / 10),
             "insufficient funds"
         );
         require(max > 0, "invalid params");
         require(_living[msg.sender] == 0, "only allow one live topic");
-        _burn(msg.sender, funds);
+        if(topicTotal()>0){
+            // Not Genesis
+            _burn(msg.sender, funds);
+        }
         _topics.push(
             Topic(msg.sender, block.timestamp, title, content, funds, max)
         );
@@ -128,5 +131,16 @@ contract BiasProtocol is ERC20, Ownable{
      */
     function updateRewards(uint rewards_) public onlyOwner {
         _rewards = rewards_;
+    }
+
+    function topics(uint start, uint number) public view returns (Topic[] memory result) {
+        result = new Topic[](number);
+        for(uint i=0;i<number;i++){
+            result[i] = _topics[i+start];
+        }
+    }
+
+    function topicTotal() public view returns (uint){
+        return _topics.length;
     }
 }
