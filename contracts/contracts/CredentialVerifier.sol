@@ -2,28 +2,33 @@
 pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/access/Ownable.sol";
-
-contract IGitcoinResolver {
-    mapping(address => mapping(bytes32 => bytes32)) public userAttestations;
-}
+import "./IGitcoinResolver.sol";
 
 contract CredentialVerifier is Ownable {
+    
     IGitcoinResolver private _gitcoinResolver;
 
-    constructor(address gitcoinResolverAddress_) public {
+    constructor(address gitcoinResolverAddress_) Ownable(_msgSender()) {
         _gitcoinResolver = IGitcoinResolver(gitcoinResolverAddress_);
-        _transferOwnership(_msgsender());
     }
 
-    function verifyGitcionPass(address owner, bytes32 uid) returns (bool) {
-        return uint(_gitcoinResolver.userAttestations(owner, uid)) > 0;
+    function verifyGitcionPass(address owner, bytes32 uid) public returns (bool) {
+        // Testnet
+        return true;
+        // return uint(_gitcoinResolver.userAttestations(owner, uid)) > 0;
     }
 
-    function calcWeight(address owner, bytes32 uid) returns (uint) {
-        if(uint(_gitcoinResolver.userAttestations(owner, uid)) > 0){
-            return 1
-        }else{
-            return 0
+    function calcWeight(address owner, bytes32 uid) public returns (uint) {
+        // Testnet
+        if (true) {
+            // if (uint(_gitcoinResolver.userAttestations(owner, uid)) > 0) {
+            return 1;
+        } else {
+            return 0;
         }
     }
+
+    // TODO
+    // 1. integration of other resolvers & credentials
+    // 2. framework design
 }

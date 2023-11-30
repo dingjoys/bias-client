@@ -1,0 +1,70 @@
+{
+	"compiler": {
+		"version": "0.8.20+commit.a1b79de6"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"name": "userAttestations",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/IGitcoinResolver.sol": "IGitcoinResolver"
+		},
+		"evmVersion": "shanghai",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/IGitcoinResolver.sol": {
+			"keccak256": "0x9b86790c757993d55b63bbcb11bb7fc7e131b8e804b64a3a8fa14a7f7c2a29bc",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://f77dca95901897fe09f35ad5f2e9c3b2533d14b3791dcad0b007e48fccaf1a98",
+				"dweb:/ipfs/QmTBGy9gwMF6HWfXRo6U9hq8FFaqQ67YiHzJFabCtmRYfK"
+			]
+		}
+	},
+	"version": 1
+}
