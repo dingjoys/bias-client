@@ -1,0 +1,246 @@
+@import './global.scss';
+
+body {
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: auto;
+    // background: #0c0f1d;
+    background: $background-color;
+    font-family: 'Poppins';
+}
+
+* {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.root {
+    min-height: 100vh;
+    // overflow-x: hidden;
+    // background: #0C0F1D;
+
+    .main-bg {
+        width: 1000px;
+        position: absolute;
+        top: 0;
+        left: calc(50% - 500px);
+        user-select: none;
+        z-index: -1;
+    }
+}
+
+// @font-face {
+//     font-family: 'Montserrat';
+//     src: url(https://oss.metopia.xyz/Montserrat-Regular.ttf);
+// }
+// @import url('https://fonts.googleapis.com/css?family=Fjalla+One:400,600');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,600,800');
+@import url('https://fonts.googleapis.com/css?family=Poppins:ital,400,600');
+@import url('https://fonts.cdnfonts.com/css/akrobat');
+
+.UserNftCardContainer {
+    display: flex;
+    gap: 8px 12px;
+    padding: 10px 0;
+    flex-wrap: wrap;
+    max-width: 100%;
+}
+
+.Tip {
+    font-size: 14px;
+    color: $subtitle-color;
+}
+
+.Error {
+    font-family: 'Poppins';
+    font-size: 14px;
+    line-height: 24px;
+    color: #c44f4b;
+}
+
+.ErrorHint {
+    font-family: 'Poppins';
+    font-size: 14px;
+    line-height: 24px;
+    color: #c44f4b;
+}
+
+.Hidden {
+    display: none !important;
+}
+
+.Button {
+    cursor: pointer;
+    user-select: none;
+}
+
+.Placeholder {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: #7d809a;
+}
+
+.RichText {
+    * {
+        // margin: 0 !important;
+        line-height: 150% !important;
+        color: #ccc !important;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    h3 {
+        font-size: 18px;
+    }
+
+    h4 {
+        font-size: 16px;
+    }
+
+    a {
+        color: rgb(180, 187, 255);
+    }
+
+    img {
+        max-width: 100%;
+    }
+
+    strong {
+        color: #fff !important;
+    }
+}
+
+.ReactModalPortal {
+    z-index: 9999;
+}
+
+.ReactModal__Overlay {
+    z-index: 9999;
+}
+
+@keyframes clocking {
+    0% {
+        transform: rotate(0);
+    }
+
+    12% {
+        transform: rotate(45deg);
+    }
+
+    25% {
+        transform: rotate(90deg);
+    }
+
+    37% {
+        transform: rotate(135deg);
+    }
+
+    50% {
+        transform: rotate(180deg);
+    }
+
+    62% {
+        transform: rotate(225deg);
+    }
+
+    75% {
+        transform: rotate(270deg);
+    }
+
+    87% {
+        transform: rotate(315deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+
+    // 88% {
+    //     transform: rotate(-45deg);
+    // }
+}
+
+.menu-container {
+    // position: fixed;
+    // top: 0;
+    // overflow: hidden;
+    display: flex;
+    justify-content: center;
+    z-index: 9990;
+    // background: rgba(228, 228, 228, 0.6);
+    // backdrop-filter: blur(16px);
+    box-sizing: border-box;
+    left: 0;
+    right: 0;
+    top: 0;
+
+    &.is-home-page {
+        background: none;
+    }
+
+    >.wrapper {
+        width: 100vw;
+        padding: 0 40px;
+    }
+}
+
+.Clickable {
+    @include clickable;
+}
+
+.Disabled {
+    pointer-events: none;
+}
+
+:root {
+    --notify-onboard-z-index: -1;
+    --account-center-z-index: -1;
+    --background-color: #171821;
+    --text-color: #ffffff;
+    --border-color: #7d809a;
+    --accent-background: #2f3141;
+    --accent-color: #ad5cff;
+    --accent-color-hover: #2c2f3f;
+    --secondary-text-color: #0c0f1d;
+    --onboard-connect-sidebar-background: var(--accent-background);
+    --onboard-close-button-background: var(--accent-background);
+    --onboard-connect-sidebar-color: var(--text-color);
+    --onboard-connect-sidebar-progress-background: var(--secondary-text-color);
+    --onboard-connect-sidebar-progress-color: var(--accent-color);
+    --onboard-connect-header-background: var(--background-color);
+    --onboard-connect-header-color: var(--text-color);
+    --onboard-main-scroll-container-background: var(--background-color);
+    --onboard-link-color: var(--accent-color);
+    --onboard-wallet-button-background: var(--background-color);
+    --onboard-wallet-button-background-hover: var(--accent-color-hover);
+    --onboard-wallet-button-border-color: var(--border-color);
+    --onboard-wallet-app-icon-border-color: var(--border-color);
+    --onboard-wallet-button-color: #fff;
+    --onboard-wallet-button-color-hover: #fff;
+    --onboard-wallet-app-icon-background-transparent: #7d809a;
+    --onboard-close-button-color: #7d809a;
+    --modal-z-index: 99999;
+    --onboard-modal-z-index: 99999;
+    // --onboard-wallet-button-background:#2c2f3f;
+}
+
+.Uppercase {
+    text-transform: capitalize;
+}
+
+input::placeholder {
+    color: #7D809A;
+}
+
+textarea::placeholder {
+    color: #7D809A;
+}
